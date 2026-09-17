@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I LOVE LOGO — Logo & Brand Studio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080808;
+    color:#fff;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6vw;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(8,8,8,.45);
+}
+
+.logo-name{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:2px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #fff, #a98cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+.nav-btn{
+    padding:12px 20px;
+    border:1px solid #444;
+    border-radius:30px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+    height:100vh;
+    min-height:700px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at center, rgba(115,65,255,.22), transparent 35%);
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom, black, transparent);
+}
+
+.hero-text{
+    position:absolute;
+    left:7vw;
+    top:35%;
+    z-index:5;
+    max-width:430px;
+}
+
+.hero-text small{
+    color:#8d70ff;
+    letter-spacing:4px;
+    font-weight:700;
+}
+
+.hero-text h1{
+    font-size:clamp(50px,7vw,110px);
+    line-height:.9;
+    margin:20px 0;
+    letter-spacing:-5px;
+}
+
+.hero-text p{
+    color:#999;
+    line-height:1.7;
+}
+
+/* 3D LOGO HERO */
+.logo-stage{
+    width:390px;
+    height:390px;
+    position:relative;
+    perspective:1200px;
+    z-index:4;
+    transform-style:preserve-3d;
+    cursor: pointer;
+}
+
+.logo-3d{
+    width:280px;
+    height:280px;
+    position:absolute;
+    left:55px;
+    top:55px;
+    border-radius:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(145deg, #a98cff, #5632dc);
+    box-shadow: 0 60px 100px rgba(80,40,255,.35),
+                inset 10px 10px 20px rgba(255,255,255,.25),
+                inset -15px -15px 30px rgba(0,0,0,.3);
+    transform-style:preserve-3d;
+    transition: transform .15s ease-out, box-shadow .3s ease;
+    animation:float 4s ease-in-out infinite;
+}
+
+.logo-stage:hover .logo-3d {
+    box-shadow: 0 80px 120px rgba(130,80,255,.6),
+                inset 10px 10px 20px rgba(255,255,255,.4);
+}
+
+.logo-symbol{
+    width:150px;
+    height:150px;
+    border:18px solid white;
+    border-radius:50%;
+    position:relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.logo-symbol:before{
+    content:"";
+    position:absolute;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:white;
+    top:25px;
+    left:25px;
+}
+
+.logo-symbol:after{
+    content:"";
+    position:absolute;
+    width:40px;
+    height:120px;
+    background:white;
+    transform:rotate(45deg);
+    left:75px;
+    top:-5px;
+    border-radius:20px;
+}
+
+.click-hint {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    text-align: center;
+    color: #a98cff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+@keyframes float{
+    0%,100%{ transform:translateY(0) rotateX(5deg) rotateY(-10deg); }
+    50%{ transform:translateY(-25px) rotateX(-5deg) rotateY(10deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.floating{
+    position:absolute;
+    color:#555;
+    font-size:11px;
+    letter-spacing:3px;
+}
+.f1{ top:25%; right:15%; }
+.f2{ bottom:20%; right:12%; }
+.f3{ bottom:30%; left:10%; }
+
+.scroll{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#666;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+/* INTRO / PORTFOLIO / SERVICES / PRICING / CONTACT */
+.intro{ min-height:100vh; display:flex; align-items:center; padding:120px 10vw; background:#0c0c0c; }
+.intro-content{ max-width:900px; }
+.number{ color:#7957ff; font-size:14px; letter-spacing:4px; }
+.intro h2{ font-size:clamp(45px,7vw,100px); line-height:.95; margin:25px 0; letter-spacing:-4px; }
+.intro p{ max-width:600px; color:#888; font-size:18px; line-height:1.8; }
+
+.portfolio{ padding:150px 7vw; }
+.section-title{ display:flex; justify-content:space-between; align-items:end; margin-bottom:80px; }
+.section-title h2{ font-size:70px; letter-spacing:-4px; }
+.section-title p{ color:#666; }
+
+.projects{ display:grid; grid-template-columns:repeat(2,1fr); gap:30px; }
+.project{ height:500px; background:#111; border:1px solid #222; border-radius:25px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; transition:.5s; cursor: pointer; }
+.project:hover{ transform:translateY(-10px); border-color:#555; }
+
+.project-logo{ width:220px; height:220px; border-radius:45px; display:flex; align-items:center; justify-content:center; font-size:50px; font-weight:900; box-shadow:0 40px 70px rgba(0,0,0,.5); transform:rotate(-8deg); transition:.5s; overflow:hidden; padding: 10px; }
+.project:hover .project-logo{ transform: rotate(0deg) scale(1.08) translateY(-10px); }
+
+.project-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+}
+
+.purple{ background:linear-gradient(145deg,#9f7cff,#4321ba); }
+.orange{ background:linear-gradient(145deg,#ff9b45,#d53a00); box-shadow: 0 20px 50px rgba(255, 120, 0, 0.4); }
+.green{ background:linear-gradient(145deg,#2ecc71,#0b5345); box-shadow: 0 20px 50px rgba(46, 204, 113, 0.3); }
+.blue{ background:linear-gradient(145deg,#65b8ff,#2356d8); }
+.silver-cyan{ background:linear-gradient(145deg, #2b3a4a, #0b1320); border: 1px solid #00e5ff; box-shadow: 0 20px 50px rgba(0, 229, 255, 0.25); }
+
+.project-info{ position:absolute; bottom:25px; left:30px; }
+.project-info span{ color:#777; font-size:12px; }
+.project-info h3{ font-size:24px; margin-top:5px; }
+
+.services{ padding:150px 7vw; background:#0b0b0b; }
+.services-grid{ margin-top:80px; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #333; }
+.service{ padding:45px 30px; border-right:1px solid #333; border-bottom:1px solid #333; min-height:260px; transition:.3s; }
+.service:hover{ background:#121212; }
+.service-number{ color:#7052ff; }
+.service h3{ font-size:28px; margin:30px 0 15px; }
+.service p{ color:#777; line-height:1.7; }
+
+.pricing{ padding:150px 7vw; }
+.pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:80px; }
+.price-card{ padding:45px; background:#101010; border:1px solid #222; border-radius:25px; }
+.price-card.featured{ background:linear-gradient(145deg,#171222,#0e0e0e); border-color:#6048d8; }
+.price-card h3{ font-size:25px; }
+.price{ font-size:55px; font-weight:800; margin:30px 0; }
+.price-card ul{ list-style:none; color:#888; line-height:2.5; }
+.price-card button{ margin-top:30px; width:100%; padding:15px; border:none; border-radius:30px; background:white; color:#000; font-weight:700; cursor:pointer; }
+
+.contact{ min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:100px 20px; background:radial-gradient(circle at center, #22184a, #080808 60%); }
+.contact small{ color:#9b82ff; letter-spacing:4px; }
+.contact h2{ font-size:clamp(50px,8vw,120px); letter-spacing:-5px; margin:30px 0; }
+.contact button{ padding:18px 40px; border:none; border-radius:50px; background:white; color:#000; font-weight:800; cursor:pointer; transition:.3s; }
+.contact button:hover{ transform:scale(1.08); }
+
+footer{ padding:40px 7vw; display:flex; justify-content:space-between; color:#555; border-top:1px solid #222; }
+
+/* =========================
+   PAGE 2: 3D LOGO SHOWCASE
+========================= */
+.showcase-page {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, #150f28 0%, #050508 100%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 4vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.showcase-page.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.showcase-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.carousel-stage-wrapper {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+.carousel-track {
+    position: relative;
+    width: 240px;
+    height: 320px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-card-3d {
+    position: absolute;
+    width: 220px;
+    height: 300px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    user-select: none;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, border 0.3s;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.logo-card-3d img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+}
+
+.logo-card-3d .card-symbol {
+    font-size: 65px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.logo-card-3d .card-title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo-card-3d .card-tag {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    letter-spacing: 1px;
+}
+
+/* CAROUSEL CONTROLS */
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.arrow-btn:hover {
+    background: #a98cff;
+    border-color: #a98cff;
+    color: #000;
+    transform: scale(1.1);
+}
+
+.active-brand-info {
+    text-align: center;
+}
+
+.active-brand-info h3 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.active-brand-info p {
+    color: #8d70ff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.click-detail-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   PAGE 3: BRAND DETAIL OVERLAY
+========================= */
+.detail-page {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, background 0.5s ease;
+    overflow-y: auto;
+}
+
+.detail-page.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.detail-container {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.detail-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: fit-content;
+}
+
+.detail-title {
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.detail-desc {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.detail-specs {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.spec-item strong {
+    color: #fff;
+}
+
+.detail-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-logo-3d {
+    width: 360px;
+    height: 460px;
+    border-radius: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: floatDetail 5s ease-in-out infinite;
+    padding: 25px;
+    overflow: hidden;
+}
+
+.detail-logo-3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 35px rgba(0,0,0,0.6));
+}
+
+@keyframes floatDetail {
+    0%, 100% { transform: translateY(0) rotateY(-10deg) rotateX(5deg); }
+    50% { transform: translateY(-20px) rotateY(10deg) rotateX(-5deg); }
+}
+
+.detail-logo-symbol {
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.detail-back-btn {
+    position: absolute;
+    top: 40px;
+    left: 6vw;
+    z-index: 10;
+}
+
+/* CURSOR GLOW */
+.cursor-glow{
+    position:fixed;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    pointer-events:none;
+    background: radial-gradient(circle, rgba(110,75,255,.12), transparent 70%);
+    transform:translate(-50%,-50%);
+    z-index:0;
+}
+
+@media(max-width:900px){
+    nav ul{ display:none; }
+    .hero-text{ left:20px; top:18%; }
+    .hero-text h1{ font-size:60px; }
+    .logo-stage{ transform: scale(.7) translateY(100px); }
+    .projects, .services-grid, .pricing-grid{ grid-template-columns:1fr; }
+    .section-title{ display:block; }
+    .section-title h2{ font-size:50px; margin-bottom:20px; }
+    .detail-container { grid-template-columns: 1fr; gap: 30px; }
+    .detail-logo-3d { width: 280px; height: 350px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo-name" onclick="showPage('home')">I LOVE LOGO</div>
+    <ul>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+    </ul>
+    <a href="#contact" class="nav-btn">START A PROJECT</a>
+</nav>
+
+<!-- PAGE 1: MAIN LANDING PAGE -->
+<div id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="grid"></div>
+
+        <div class="hero-text">
+            <small>BRAND & LOGO STUDIO</small>
+            <h1>YOUR<br>BRAND<br>MATTERS.</h1>
+            <p>เราสร้างโลโก้และอัตลักษณ์ของแบรนด์ ให้โดดเด่น จดจำง่าย และดูดีในทุกแพลตฟอร์ม</p>
+        </div>
+
+        <!-- 3D LOGO (CLICK TO OPEN SHOWCASE) -->
+        <div class="logo-stage" id="logoStage" onclick="showPage('showcase')">
+            <div class="logo-3d" id="mainLogo">
+                <div class="logo-symbol"></div>
+            </div>
+            <div class="click-hint">✦ CLICK TO EXPLORE 3D LOGOS ✦</div>
+        </div>
+
+        <div class="floating f1">BRAND / 01</div>
+        <div class="floating f2">IDENTITY / 02</div>
+        <div class="floating f3">DESIGN / 03</div>
+
+        <div class="scroll">SCROLL TO EXPLORE ↓</div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+        <div class="intro-content">
+            <div class="number">01 — THE IDEA</div>
+            <h2>A LOGO IS<br>MORE THAN<br>A SYMBOL.</h2>
+            <p>โลโก้ที่ดีไม่ได้มีหน้าที่แค่ทำให้แบรนด์สวย แต่ต้องช่วยสร้างภาพจำ ตัวตน และความรู้สึก ให้กับผู้คนตั้งแต่ครั้งแรกที่มองเห็น</p>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="work">
+        <div class="section-title">
+            <h2>SELECTED<br>WORK</h2>
+            <p>Selected identity concepts</p>
+        </div>
+
+        <div class="projects">
+            <div class="project" onclick="openDetailById('AUREL')">
+                <div class="project-logo purple">A</div>
+                <div class="project-info">
+                    <span>BRAND IDENTITY</span>
+                    <h3>AUREL</h3>
+                </div>
+            </div>
+
+            <!-- ZAA POP BRAND ITEM -->
+            <div class="project" onclick="openDetailById('ZAA POP')">
+                <div class="project-logo orange">
+                    <svg viewBox="0 0 500 500" style="width:100%; height:100%; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4));">
+                        <defs>
+                            <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFD000"/>
+                                <stop offset="50%" stop-color="#FF7A00"/>
+                                <stop offset="100%" stop-color="#E63900"/>
+                            </linearGradient>
+                            <linearGradient id="textGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF500"/>
+                                <stop offset="100%" stop-color="#FF6B00"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M150,180 Q200,80 270,120 Q350,60 380,150 Q450,170 430,260 Q480,330 400,380 Q350,450 250,420 Q150,460 100,370 Q30,320 80,240 Q40,160 150,180 Z" fill="url(#gradOrange)" stroke="#FFF" stroke-width="6"/>
+                        <circle cx="260" cy="230" r="110" fill="#FFA500" stroke="#FFF" stroke-width="12"/>
+                        <circle cx="260" cy="230" r="85" fill="#FF7A00"/>
+                        <path d="M260,230 L260,150 A80,80 0 0,1 330,200 Z" fill="#FFF" opacity="0.9"/>
+                        <path d="M260,230 L330,200 A80,80 0 0,1 330,260 Z" fill="#FFF" opacity="0.7"/>
+                        <path d="M260,230 L330,260 A80,80 0 0,1 270,310 Z" fill="#FFF" opacity="0.9"/>
+                        <path d="M260,230 L270,310 A80,80 0 0,1 200,290 Z" fill="#FFF" opacity="0.7"/>
+                        <path d="M200,130 Q160,80 220,70 Q240,110 200,130 Z" fill="#4CAF50" stroke="#FFF" stroke-width="4"/>
+                        <circle cx="340" cy="120" r="12" fill="#FFF" opacity="0.8"/>
+                        <circle cx="370" cy="90" r="8" fill="#FFF" opacity="0.8"/>
+                        <circle cx="150" cy="140" r="10" fill="#FFF" opacity="0.8"/>
+                        <circle cx="120" cy="220" r="15" fill="#FFF" opacity="0.8"/>
+                        <text x="250" y="380" font-family="'Inter', sans-serif" font-weight="900" font-size="68" fill="url(#textGrad)" stroke="#6A1B00" stroke-width="14" text-anchor="middle" paint-order="stroke fill">ZAA POP</text>
+                        <text x="250" y="420" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#FFF" text-anchor="middle" letter-spacing="3">FIZZY ORANGE SODA</text>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <span>FOOD & BEVERAGE</span>
+                    <h3>ZAA POP</h3>
+                </div>
+            </div>
+
+            <!-- SWIFT BITE BRAND ITEM -->
+            <div class="project" onclick="openDetailById('SWIFT BITE')">
+                <div class="project-logo green" id="swiftBiteTile"></div>
+                <div class="project-info">
+                    <span>FOOD DELIVERY</span>
+                    <h3>SWIFT BITE</h3>
+                </div>
+            </div>
+
+            <!-- SILVER FANGS BRAND ITEM -->
+            <div class="project" onclick="openDetailById('SILVER FANGS')">
+                <div class="project-logo silver-cyan">
+                    <svg viewBox="0 0 500 500" style="width:100%; height:100%; filter: drop-shadow(0 10px 20px rgba(0,229,255,0.4));">
+                        <defs>
+                            <linearGradient id="shieldGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3A506B"/>
+                                <stop offset="50%" stop-color="#1C2541"/>
+                                <stop offset="100%" stop-color="#0B1320"/>
+                            </linearGradient>
+                            <linearGradient id="silverWolfMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFFFF"/>
+                                <stop offset="50%" stop-color="#B0BEC5"/>
+                                <stop offset="100%" stop-color="#455A64"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M250,30 L420,90 L390,350 L250,450 L110,350 L80,90 Z" fill="url(#shieldGradMain)" stroke="#00E5FF" stroke-width="8"/>
+                        <path d="M250,70 L340,120 L380,240 L250,370 L120,240 L160,120 Z" fill="#0F172A" stroke="#00E5FF" stroke-width="3"/>
+                        <path d="M250,100 L310,160 L360,130 L320,220 L250,280 L180,220 L140,130 L190,160 Z" fill="url(#silverWolfMain)"/>
+                        <polygon points="205,185 235,195 215,205" fill="#00E5FF"/>
+                        <polygon points="295,185 265,195 285,205" fill="#00E5FF"/>
+                        <polygon points="230,245 238,270 245,245" fill="#FFFFFF"/>
+                        <polygon points="270,245 262,270 255,245" fill="#FFFFFF"/>
+                        <path d="M80,330 L420,330 L390,400 L250,430 L110,400 Z" fill="#0B1320" stroke="#00E5FF" stroke-width="6"/>
+                        <text x="250" y="375" font-family="'Inter', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" stroke="#00E5FF" stroke-width="2" text-anchor="middle">SILVER FANGS</text>
+                        <text x="250" y="402" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#00E5FF" text-anchor="middle" letter-spacing="3">ESPORTS TEAM</text>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <span>ESPORTS & GAMING</span>
+                    <h3>SILVER FANGS</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="number">02 — WHAT WE DO</div>
+        <div class="section-title"><h2>SERVICES</h2></div>
+        <div class="services-grid">
+            <div class="service"><span class="service-number">01</span><h3>Logo Design</h3><p>ออกแบบโลโก้ใหม่ให้กับธุรกิจ พร้อมสร้าง Concept และระบบภาพลักษณ์</p></div>
+            <div class="service"><span class="service-number">02</span><h3>Brand Identity</h3><p>สร้าง Visual Identity ให้แบรนด์มีภาพจำที่ชัดเจนและเป็นเอกลักษณ์</p></div>
+            <div class="service"><span class="service-number">03</span><h3>3D Logo</h3><p>เปลี่ยนโลโก้ธรรมดาให้กลายเป็น 3D Logo สำหรับเว็บไซต์และงานโฆษณา</p></div>
+            <div class="service"><span class="service-number">04</span><h3>Social Media</h3><p>ออกแบบภาพสำหรับ Facebook, Instagram, TikTok และแพลตฟอร์มต่าง ๆ</p></div>
+            <div class="service"><span class="service-number">05</span><h3>Packaging</h3><p>ออกแบบบรรจุภัณฑ์ให้สอดคล้องกับเอกลักษณ์ของแบรนด์</p></div>
+            <div class="service"><span class="service-number">06</span><h3>Motion Logo</h3><p>ทำ Animation ให้โลโก้สามารถเคลื่อนไหวสำหรับ Video และ Website</p></div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="number">03 — PACKAGES</div>
+        <div class="section-title"><h2>CHOOSE<br>YOUR PLAN</h2></div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>STARTER</h3>
+                <div class="price">฿2,990</div>
+                <ul><li>✓ Logo Design</li><li>✓ 2 Concepts</li><li>✓ 2 Revisions</li><li>✓ PNG / JPG</li><li>✓ Commercial Use</li></ul>
+                <button>CHOOSE PLAN</button>
+            </div>
+            <div class="price-card featured">
+                <h3>BRAND</h3>
+                <div class="price">฿6,990</div>
+                <ul><li>✓ Logo Design</li><li>✓ 3 Concepts</li><li>✓ Unlimited Revisions</li><li>✓ AI / SVG / PNG / JPG</li><li>✓ Brand Color</li><li>✓ Typography</li><li>✓ Commercial Use</li></ul>
+                <button>CHOOSE PLAN</button>
+            </div>
+            <div class="price-card">
+                <h3>PREMIUM</h3>
+                <div class="price">฿12,900</div>
+                <ul><li>✓ Complete Brand Identity</li><li>✓ Logo System</li><li>✓ Brand Guideline</li><li>✓ Social Media Kit</li><li>✓ 3D Logo</li><li>✓ Motion Logo</li></ul>
+                <button>CHOOSE PLAN</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <small>HAVE A PROJECT?</small>
+        <h2>LET'S MAKE<br>SOMETHING.</h2>
+        <button onclick="contact()">START A PROJECT →</button>
+    </section>
+
+    <footer>
+        <span>© 2026 I LOVE LOGO</span>
+        <span>LOGO / BRAND / DESIGN</span>
+    </footer>
+</div>
+
+<!-- PAGE 2: 3D BRAND LOGO SHOWCASE -->
+<div id="page-showcase" class="showcase-page">
+    <div class="showcase-header">
+        <button class="back-btn" onclick="showPage('home')">← หน้าหลัก</button>
+        <div style="font-weight: 800; letter-spacing: 2px;">3D BRAND SHOWCASE</div>
+        <div style="width: 100px;"></div>
+    </div>
+
+    <!-- 3D CAROUSEL CONTAINER -->
+    <div class="carousel-stage-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+            <!-- Dynamic 10 Cards -->
+        </div>
+    </div>
+
+    <!-- CONTROLS & BRAND TITLE -->
+    <div class="carousel-controls">
+        <button class="arrow-btn" onclick="rotateCarousel(-1)">‹</button>
+        <div class="active-brand-info">
+            <h3 id="brandTitle">AUREL</h3>
+            <p id="brandCategory">BRAND IDENTITY</p>
+            <div class="click-detail-hint">( คลิกที่โลโก้เพื่อดูรายละเอียด )</div>
+        </div>
+        <button class="arrow-btn" onclick="rotateCarousel(1)">›</button>
+    </div>
+</div>
+
+<!-- PAGE 3: BRAND DETAIL OVERLAY -->
+<div id="page-detail" class="detail-page">
+    <button class="back-btn detail-back-btn" onclick="showPage('showcase')">← กลับไป Showcase</button>
+
+    <div class="detail-container">
+        <div class="detail-left">
+            <span class="detail-tag" id="detailTag">CATEGORY</span>
+            <h1 class="detail-title" id="detailTitle">BRAND NAME</h1>
+            <p class="detail-desc" id="detailDesc">
+                รายละเอียดแนวคิดและการออกแบบโลโก้ 3D สตรีมไลน์ เน้นการสื่อสารตัวตนของแบรนด์ที่ชัดเจนและเรียบหรูในทุกมิติ
+            </p>
+            <div class="detail-specs">
+                <div class="spec-item"><span>สไตล์การออกแบบ</span><strong id="specStyle">3D Minimalist</strong></div>
+                <div class="spec-item"><span>โทนสีหลัก (Palette)</span><strong id="specColor">#9F7CFF, #4321BA</strong></div>
+                <div class="spec-item"><span>เหมาะสำหรับ</span><strong id="specTarget">Digital, Tech & Fashion</strong></div>
+            </div>
+        </div>
+
+        <div class="detail-right">
+            <div class="detail-logo-3d" id="detailLogoCard">
+                <div id="detailLogoContent" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+                    <div class="detail-logo-symbol" id="detailLogoSymbol">A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<script>
+/* =========================
+   SVG CODE FOR LOGOS
+========================= */
+const zaaPopSvg = `
+<svg viewBox="0 0 500 500" style="width:100%; height:100%; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));">
+    <defs>
+        <linearGradient id="gradOrangeDetail" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFD000"/>
+            <stop offset="50%" stop-color="#FF7A00"/>
+            <stop offset="100%" stop-color="#E63900"/>
+        </linearGradient>
+        <linearGradient id="textGradDetail" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF500"/>
+            <stop offset="100%" stop-color="#FF6B00"/>
+        </linearGradient>
+    </defs>
+    <path d="M150,180 Q200,80 270,120 Q350,60 380,150 Q450,170 430,260 Q480,330 400,380 Q350,450 250,420 Q150,460 100,370 Q30,320 80,240 Q40,160 150,180 Z" fill="url(#gradOrangeDetail)" stroke="#FFF" stroke-width="8"/>
+    <circle cx="260" cy="230" r="110" fill="#FFA500" stroke="#FFF" stroke-width="12"/>
+    <circle cx="260" cy="230" r="85" fill="#FF7A00"/>
+    <path d="M260,230 L260,150 A80,80 0 0,1 330,200 Z" fill="#FFF" opacity="0.9"/>
+    <path d="M260,230 L330,200 A80,80 0 0,1 330,260 Z" fill="#FFF" opacity="0.7"/>
+    <path d="M260,230 L330,260 A80,80 0 0,1 270,310 Z" fill="#FFF" opacity="0.9"/>
+    <path d="M260,230 L270,310 A80,80 0 0,1 200,290 Z" fill="#FFF" opacity="0.7"/>
+    <path d="M200,130 Q160,80 220,70 Q240,110 200,130 Z" fill="#4CAF50" stroke="#FFF" stroke-width="5"/>
+    <circle cx="340" cy="120" r="12" fill="#FFF" opacity="0.9"/>
+    <circle cx="370" cy="90" r="8" fill="#FFF" opacity="0.9"/>
+    <circle cx="150" cy="140" r="10" fill="#FFF" opacity="0.9"/>
+    <circle cx="120" cy="220" r="15" fill="#FFF" opacity="0.9"/>
+    <text x="250" y="380" font-family="'Inter', sans-serif" font-weight="900" font-size="68" fill="url(#textGradDetail)" stroke="#6A1B00" stroke-width="14" text-anchor="middle" paint-order="stroke fill">ZAA POP</text>
+    <text x="250" y="420" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#FFF" text-anchor="middle" letter-spacing="3">FIZZY ORANGE SODA</text>
+</svg>
+`;
+
+/* =========================
+   SWIFT BITE LOGO (vector)
+   uid = unique suffix so gradient IDs never collide
+   when the logo is on screen in more than one place
+========================= */
+function swiftBiteLogo(uid) {
+    const gBody = "sbBody-" + uid;
+    const gText = "sbText-" + uid;
+    const MINT = "#DFFFEE";
+
+    return `
+<svg viewBox="0 0 500 500" role="img" aria-label="โลโก้ SWIFTBITE บริการจัดส่งอาหารด่วน"
+     style="width:100%; height:100%; filter: drop-shadow(0 12px 25px rgba(0,0,0,.45));">
+    <defs>
+        <linearGradient id="${gBody}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#34D97F"/>
+            <stop offset="100%" stop-color="#0C6B42"/>
+        </linearGradient>
+        <linearGradient id="${gText}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#EAFFF4"/>
+            <stop offset="100%" stop-color="#5CFFB0"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Arched frame, open at the top for the GPS pin -->
+    <g fill="none" stroke="${MINT}" stroke-width="9" stroke-linecap="round" opacity=".8">
+        <path d="M138,300 L138,163 Q138,124 178,124 L206,124"/>
+        <path d="M362,300 L362,163 Q362,124 322,124 L294,124"/>
+    </g>
+
+    <!-- Signal waves -->
+    <g fill="none" stroke="${MINT}" stroke-width="8" stroke-linecap="round">
+        <path d="M237,58 A50,50 0 0,1 307,58"/>
+        <path d="M221,38 A70,70 0 0,1 323,38"/>
+    </g>
+
+    <!-- GPS pin -->
+    <path d="M272,62 c19,0 34,15 34,34 c0,24 -34,50 -34,50 s-34,-26 -34,-50 c0,-19 15,-34 34,-34 z"
+          fill="url(#${gBody})" stroke="${MINT}" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="272" cy="96" r="12" fill="${MINT}"/>
+
+    <!-- Cloche on top of the delivery box -->
+    <circle cx="216" cy="128" r="6" fill="${MINT}"/>
+    <path d="M186,158 a30,24 0 0,1 60,0 z" fill="${MINT}"/>
+
+    <!-- Delivery box -->
+    <rect x="168" y="158" width="96" height="78" rx="16"
+          fill="url(#${gBody})" stroke="${MINT}" stroke-width="8"/>
+
+    <!-- Fork &amp; spoon -->
+    <g stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" fill="none">
+        <path d="M202,218 L226,190"/>
+        <path d="M230,218 L208,192"/>
+    </g>
+    <ellipse cx="231" cy="183" rx="9" ry="12" fill="#FFFFFF" transform="rotate(40 231 183)"/>
+    <g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round">
+        <path d="M198,178 L203,186"/>
+        <path d="M205,174 L208,183"/>
+    </g>
+
+    <!-- Scooter body -->
+    <path d="M170,236 L266,236 Q292,236 300,262 L305,278 L188,278 Q180,252 170,236 Z"
+          fill="url(#${gBody})" stroke="${MINT}" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M196,278 L318,278" stroke="${MINT}" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- Front leg shield + handlebar + mirror -->
+    <path d="M305,278 C299,246 306,214 322,200 L341,212 C331,229 329,252 331,278 Z"
+          fill="url(#${gBody})" stroke="${MINT}" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="318" cy="232" r="10" fill="${MINT}"/>
+    <path d="M324,196 L354,182" stroke="${MINT}" stroke-width="9" stroke-linecap="round"/>
+    <path d="M354,182 L364,169" stroke="${MINT}" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="368" cy="163" r="9" fill="${MINT}"/>
+
+    <!-- Wheels -->
+    <circle cx="212" cy="290" r="30" fill="#06392B" stroke="${MINT}" stroke-width="9"/>
+    <circle cx="212" cy="290" r="9" fill="${MINT}"/>
+    <circle cx="318" cy="290" r="30" fill="#06392B" stroke="${MINT}" stroke-width="9"/>
+    <circle cx="318" cy="290" r="9" fill="${MINT}"/>
+
+    <!-- Speed lines -->
+    <g stroke="${MINT}" stroke-width="8" stroke-linecap="round">
+        <path d="M104,196 L152,196"/>
+        <path d="M84,220 L152,220"/>
+        <path d="M112,244 L152,244"/>
+    </g>
+
+    <!-- Typography -->
+    <text x="250" y="400" font-family="'Inter', sans-serif" font-weight="900" font-size="60"
+          fill="url(#${gText})" stroke="#04231C" stroke-width="9" text-anchor="middle"
+          paint-order="stroke fill" letter-spacing="2">SWIFTBITE</text>
+    <text x="250" y="436" font-family="'Inter', sans-serif" font-weight="800" font-size="19"
+          fill="#BFFFE0" text-anchor="middle" letter-spacing="4">FAST, FRESH, DELIVERED</text>
+</svg>
+`;
+}
+
+const silverFangsSvg = `
+<svg viewBox="0 0 500 500" style="width:100%; height:100%; filter: drop-shadow(0 15px 30px rgba(0,229,255,0.45));">
+    <defs>
+        <linearGradient id="shieldGradDetail" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4B637A"/>
+            <stop offset="50%" stop-color="#1C2541"/>
+            <stop offset="100%" stop-color="#0B1320"/>
+        </linearGradient>
+        <linearGradient id="silverWolfDetail" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="50%" stop-color="#CFD8DC"/>
+            <stop offset="100%" stop-color="#455A64"/>
+        </linearGradient>
+    </defs>
+    <!-- Outer Shield -->
+    <path d="M250,30 L420,90 L390,350 L250,450 L110,350 L80,90 Z" fill="url(#shieldGradDetail)" stroke="#00E5FF" stroke-width="8"/>
+    <!-- Inner Frame -->
+    <path d="M250,70 L340,120 L380,240 L250,370 L120,240 L160,120 Z" fill="#0F172A" stroke="#00E5FF" stroke-width="3"/>
+    <!-- Wolf Head -->
+    <path d="M250,100 L310,160 L360,130 L320,220 L250,280 L180,220 L140,130 L190,160 Z" fill="url(#silverWolfDetail)"/>
+    <!-- Glowing Cyan Eyes -->
+    <polygon points="205,185 235,195 215,205" fill="#00E5FF"/>
+    <polygon points="295,185 265,195 285,205" fill="#00E5FF"/>
+    <!-- Fangs -->
+    <polygon points="230,245 238,270 245,245" fill="#FFFFFF"/>
+    <polygon points="270,245 262,270 255,245" fill="#FFFFFF"/>
+    <!-- Banner -->
+    <path d="M80,330 L420,330 L390,400 L250,430 L110,400 Z" fill="#0B1320" stroke="#00E5FF" stroke-width="6"/>
+    <text x="250" y="375" font-family="'Inter', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" stroke="#00E5FF" stroke-width="2" text-anchor="middle">SILVER FANGS</text>
+    <text x="250" y="402" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#00E5FF" text-anchor="middle" letter-spacing="3">ESPORTS TEAM</text>
+</svg>
+`;
+
+/* =========================
+   10 BRAND DATA LIST
+========================= */
+const brandData = [
+    { 
+        name: "AUREL", 
+        category: "BRAND IDENTITY", 
+        symbol: "A", 
+        bgGradient: "linear-gradient(145deg,#9f7cff,#4321ba)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #321b7a, #08070d 70%)", 
+        colorText: "#9f7cff", 
+        desc: "แนวคิดการออกแบบโลโก้ AUREL เน้นความหรูหราทันสมัย ผสมผสานเส้นสายมินิมอลกับโครงสร้าง 3D ช่วยสร้างภาพจำอันทรงพลังให้กับแบรนด์แฟชั่นและสินค้าพรีเมียม",
+        style: "3D Minimalist",
+        palette: "#9F7CFF, #4321BA",
+        target: "Luxury & Fashion"
+    },
+    { 
+        name: "ZAA POP", 
+        category: "FOOD & BEVERAGE", 
+        symbol: "ZAA", 
+        isSvg: true,
+        svgCode: zaaPopSvg,
+        bgGradient: "linear-gradient(145deg, #ff9b45, #d53a00)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #632203, #08070d 70%)", 
+        colorText: "#ff9b45", 
+        desc: "โลโก้น้ำอัดลมรสส้ม ZAA POP ถ่ายทอดความรู้สึกซ่า สดชื่น กระปรี้กระเปร่า และมีชีวิตชีวาแบบสุดขั้ว! การออกแบบชูจุดเด่นด้วยหยดน้ำส้มกระจาย (Splash Effect) ควบคู่กับตัวอักษรกลมมนแบบ Pop Soda ให้ความสนุกสนาน ปลุกพลังความสดใส ดื่มแล้วรีเฟรชร่างกายทันที",
+        style: "Fizzy Soda Splash & Pop",
+        palette: "#FF7A00, #FFD000, #E63900",
+        target: "Fizzy Drink, Soda & Youth Brand"
+    },
+    { 
+        name: "SWIFT BITE", 
+        category: "FOOD DELIVERY & LOGISTICS", 
+        symbol: "SB", 
+        isSvg: true,
+        svgFn: swiftBiteLogo,
+        bgGradient: "linear-gradient(145deg, #2ecc71, #0b5345)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #06382e, #08070d 70%)", 
+        colorText: "#2ecc71", 
+        desc: "SWIFT BITE แบรนด์บริการจัดส่งอาหารด่วนพิเศษ ออกแบบด้วยสัญลักษณ์รถสกู๊ตเตอร์ความเร็วสูงพร้อมปักหมุดสัญญาณ GPS และกล่องอาหารสดใหม่ สะท้อนความรวดเร็ว แม่นยำ และการบริการที่ไว้วางใจได้ตลอด 24 ชั่วโมง",
+        style: "Speed Motion & Neon Delivery",
+        palette: "#A3FFD6, #2ECC71, #0B5345",
+        target: "Food Delivery, Express & Logistics"
+    },
+    { 
+        name: "ORBIT", 
+        category: "TRAVEL AGENCY", 
+        symbol: "O", 
+        bgGradient: "linear-gradient(145deg,#65b8ff,#2356d8)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #0c2b78, #08070d 70%)", 
+        colorText: "#65b8ff", 
+        desc: "แรงบันดาลใจจากวงโคจรรอบโลกและเส้นทางการเดินทางไม่รู้จบ มอบลุค Clean & Modern ที่เหมาะกับธุรกิจทัวร์และเอเจนซี่จองตั๋วเดินทาง",
+        style: "Global Route Motion",
+        palette: "#65B8FF, #2356D8",
+        target: "Travel Agency & Tourism"
+    },
+    { 
+        name: "KRONOS", 
+        category: "ONLINE SHOPPING APP", 
+        symbol: "K", 
+        isSvg: true,
+        svgFn: kronosLogo,
+        bgGradient: "linear-gradient(145deg,#ffb258,#c2410c)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #5c2400, #08070d 70%)", 
+        colorText: "#ff9d42", 
+        desc: "KRONOS แอปพลิเคชันช้อปปิ้งออนไลน์ ออกแบบด้วยไอคอนกระเป๋าช้อปปิ้งพร้อมป้ายยืนยันคำสั่งซื้อ โทนสีส้มสดใสสื่อถึงความคล่องตัว เชื่อถือได้ และประสบการณ์ซื้อของที่สนุกทุกวัน",
+        style: "Friendly App Icon",
+        palette: "#FFB258, #C2410C",
+        target: "E-Commerce & Shopping App"
+    },
+    { 
+        name: "CYBER", 
+        category: "HOME ELECTRONICS", 
+        symbol: "C", 
+        isSvg: true,
+        svgFn: cyberLogo,
+        bgGradient: "linear-gradient(145deg,#ff0055,#7a0026)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #4a0017, #08070d 70%)", 
+        colorText: "#ff0055", 
+        desc: "CYBER แบรนด์เครื่องใช้ไฟฟ้าภายในบ้าน ออกแบบด้วยสัญลักษณ์ชิปวงจรและสายฟ้าพลังงาน โทนสีแดงนีออนสื่อถึงเทคโนโลยีทันสมัย ทรงพลัง และความน่าเชื่อถือของอุปกรณ์ไฟฟ้าคุณภาพสูง",
+        style: "Neon Circuit Power",
+        palette: "#FF5C85, #7A0026",
+        target: "Home Electronics & Appliances"
+    },
+    { 
+        name: "ZEPHYR", 
+        category: "RESTAURANT & FINE DINING", 
+        symbol: "Z", 
+        isSvg: true,
+        svgFn: zephyrLogo,
+        bgGradient: "linear-gradient(145deg,#00f2fe,#4facfe)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #033a59, #08070d 70%)", 
+        colorText: "#00f2fe", 
+        desc: "ZEPHYR แบรนด์ร้านอาหารระดับพรีเมียม ออกแบบด้วยหมวกเชฟ จานอาหาร และส้อมมีดไขว้บนโทนสีฟ้าสะอาดตา สื่อถึงความประณีต สดใหม่ และมาตรฐานการบริการที่เหนือระดับ",
+        style: "Clean Culinary Emblem",
+        palette: "#8FE3FF, #0B6FA8",
+        target: "Restaurant & Fine Dining"
+    },
+    { 
+        name: "LUMEN", 
+        category: "PHOTOGRAPHY STUDIO", 
+        symbol: "L", 
+        bgGradient: "linear-gradient(145deg,#f355da,#6e0d8a)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #3e074e, #08070d 70%)", 
+        colorText: "#f355da", 
+        desc: "จุดประกายแสงแฟลชและการจับภาพช่วงเวลาสำคัญ ใช้รูปทรงวงกลมตัดสลับกับระนาบ 3D สร้างมิติแสงเงาที่ลึกซึ้ง เหมาะกับสตูดิโอถ่ายภาพระดับมืออาชีพ",
+        style: "Light & Shadow 3D",
+        palette: "#F355DA, #6E0D8A",
+        target: "Photography Studio"
+    },
+    { 
+        name: "TITAN", 
+        category: "FITNESS & GYM", 
+        symbol: "T", 
+        bgGradient: "linear-gradient(145deg,#00e676,#006064)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #01382b, #08070d 70%)", 
+        colorText: "#00e676", 
+        desc: "ความแข็งแกร่ง ทรงพลัง และไม่ย่อท้อ สร้างสรรค์มาเพื่อฟิตเนสและยิมสำหรับคนรักการออกกำลังกาย ด้วยภาพลักษณ์ที่ดุดันและกระตุ้นพลังใจ",
+        style: "Solid Power",
+        palette: "#00E676, #006064",
+        target: "Fitness & Gym"
+    },
+    { 
+        name: "SILVER FANGS", 
+        category: "ESPORTS & GAMING", 
+        symbol: "SF", 
+        isSvg: true,
+        svgCode: silverFangsSvg,
+        bgGradient: "linear-gradient(145deg, #1e293b, #0b1320)", 
+        pageBg: "radial-gradient(circle at 70% 50%, #0f2b46, #050b11 70%)", 
+        colorText: "#00e5ff", 
+        desc: "โลโก้ทีมอีสปอร์ต SILVER FANGS (หมาป่าเงิน) ออกแบบมาอย่างดุดัน ทรงพลัง และน่าเกรงขาม โดดเด่นด้วยหัวหมาป่าเงินคำราม เขี้ยวคมกริบ และดวงตาทอแสงสีฟ้าไอซ์บลู (Icy Cyan) บนโล่โลหะสไตล์สปอร์ต สื่อถึงความว่องไว การทำงานเป็นทีมอย่างมีเอกภาพ และชัยชนะอันเด็ดขาดบนสนามแข่ง",
+        style: "Metallic Wolf Shield & Cyan Glow",
+        palette: "#FFFFFF, #00E5FF, #0B1320",
+        target: "Esports Team, Gaming & Streamer"
+    }
+];
+
+let currentIndex = 0;
+
+/* Returns a brand's SVG markup. uid keeps gradient IDs unique per instance. */
+/* =========================
+   ZEPHYR — RESTAURANT (BLUE)
+========================= */
+function zephyrLogo(uid) {
+    const gBody = "zpBody-" + uid;
+    const gText = "zpText-" + uid;
+    const LIGHT = "#EAF6FF";
+    return `
+<svg viewBox="0 0 500 500" role="img" aria-label="โลโก้ ZEPHYR ร้านอาหาร"
+     style="width:100%; height:100%; filter: drop-shadow(0 12px 25px rgba(0,178,255,.4));">
+    <defs>
+        <linearGradient id="${gBody}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#8FE3FF"/>
+            <stop offset="100%" stop-color="#0B6FA8"/>
+        </linearGradient>
+        <linearGradient id="${gText}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F2FCFF"/>
+            <stop offset="100%" stop-color="#7FE0FF"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Emblem ring -->
+    <circle cx="250" cy="240" r="158" fill="none" stroke="${LIGHT}" stroke-width="4" opacity=".55"/>
+
+    <!-- Chef hat -->
+    <path d="M203,225 C203,188 222,160 250,160 C278,160 297,188 297,225 L297,238 L203,238 Z"
+          fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="222" cy="178" r="17" fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="6"/>
+    <circle cx="250" cy="164" r="19" fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="6"/>
+    <circle cx="278" cy="178" r="17" fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="6"/>
+    <rect x="196" y="232" width="108" height="26" rx="10"
+          fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="7"/>
+
+    <!-- Plate -->
+    <circle cx="250" cy="345" r="92" fill="none" stroke="${LIGHT}" stroke-width="8" opacity=".9"/>
+    <circle cx="250" cy="345" r="70" fill="none" stroke="${LIGHT}" stroke-width="4" opacity=".5"/>
+
+    <!-- Crossed fork & knife -->
+    <g stroke="${LIGHT}" stroke-width="9" stroke-linecap="round">
+        <path d="M190,300 L262,382"/>
+        <path d="M310,300 L238,382"/>
+    </g>
+    <g stroke="${LIGHT}" stroke-width="6" stroke-linecap="round">
+        <path d="M178,286 L192,302"/>
+        <path d="M190,278 L200,296"/>
+        <path d="M202,286 L208,302"/>
+    </g>
+    <path d="M322,286 C312,296 300,300 292,296 L306,314 C316,308 324,298 322,286 Z"
+          fill="${LIGHT}"/>
+
+    <!-- Typography -->
+    <text x="250" y="460" font-family="'Inter', sans-serif" font-weight="900" font-size="54"
+          fill="url(#${gText})" stroke="#02273A" stroke-width="8" text-anchor="middle"
+          paint-order="stroke fill" letter-spacing="2">ZEPHYR</text>
+    <text x="250" y="486" font-family="'Inter', sans-serif" font-weight="800" font-size="15"
+          fill="#BEF0FF" text-anchor="middle" letter-spacing="4">FINE DINING &amp; CUISINE</text>
+</svg>
+`;
+}
+
+/* =========================
+   CYBER — ELECTRONICS (RED)
+========================= */
+function cyberLogo(uid) {
+    const gBody = "cbBody-" + uid;
+    const gText = "cbText-" + uid;
+    const LIGHT = "#FFE3EA";
+    return `
+<svg viewBox="0 0 500 500" role="img" aria-label="โลโก้ CYBER เครื่องใช้ไฟฟ้า"
+     style="width:100%; height:100%; filter: drop-shadow(0 12px 25px rgba(255,0,85,.45));">
+    <defs>
+        <linearGradient id="${gBody}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF5C85"/>
+            <stop offset="100%" stop-color="#7A0026"/>
+        </linearGradient>
+        <linearGradient id="${gText}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF1F4"/>
+            <stop offset="100%" stop-color="#FF8FA8"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Chip body -->
+    <rect x="165" y="165" width="170" height="170" rx="26"
+          fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="8"/>
+    <rect x="190" y="190" width="120" height="120" rx="14"
+          fill="none" stroke="${LIGHT}" stroke-width="3" opacity=".5"/>
+
+    <!-- Pins -->
+    <g stroke="${LIGHT}" stroke-width="9" stroke-linecap="round">
+        <path d="M205,165 L205,140"/><path d="M250,165 L250,136"/><path d="M295,165 L295,140"/>
+        <path d="M205,335 L205,360"/><path d="M250,335 L250,364"/><path d="M295,335 L295,360"/>
+        <path d="M165,205 L140,205"/><path d="M165,250 L136,250"/><path d="M165,295 L140,295"/>
+        <path d="M335,205 L360,205"/><path d="M335,250 L364,250"/><path d="M335,295 L360,295"/>
+    </g>
+
+    <!-- Lightning bolt -->
+    <path d="M266,198 L214,262 L244,262 L232,318 L292,246 L258,246 Z"
+          fill="${LIGHT}" stroke="#3A0011" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- Typography -->
+    <text x="250" y="425" font-family="'Inter', sans-serif" font-weight="900" font-size="58"
+          fill="url(#${gText})" stroke="#3A0011" stroke-width="9" text-anchor="middle"
+          paint-order="stroke fill" letter-spacing="2">CYBER</text>
+    <text x="250" y="454" font-family="'Inter', sans-serif" font-weight="800" font-size="15"
+          fill="#FFC4D3" text-anchor="middle" letter-spacing="4">HOME ELECTRONICS</text>
+</svg>
+`;
+}
+
+/* =========================
+   KRONOS — SHOPPING APP (ORANGE)
+========================= */
+function kronosLogo(uid) {
+    const gBody = "krBody-" + uid;
+    const gText = "krText-" + uid;
+    const LIGHT = "#FFF3E6";
+    return `
+<svg viewBox="0 0 500 500" role="img" aria-label="โลโก้ KRONOS แอปพลิเคชันซื้อของออนไลน์"
+     style="width:100%; height:100%; filter: drop-shadow(0 12px 25px rgba(255,122,0,.45));">
+    <defs>
+        <linearGradient id="${gBody}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFB258"/>
+            <stop offset="100%" stop-color="#C2410C"/>
+        </linearGradient>
+        <linearGradient id="${gText}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF8F0"/>
+            <stop offset="100%" stop-color="#FFCB8E"/>
+        </linearGradient>
+    </defs>
+
+    <!-- App icon tile -->
+    <rect x="140" y="105" width="220" height="220" rx="52"
+          fill="url(#${gBody})" stroke="${LIGHT}" stroke-width="8"/>
+
+    <!-- Bag handles -->
+    <path d="M197,225 L197,196 a53,53 0 0 1 106,0 L303,225"
+          fill="none" stroke="${LIGHT}" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- Bag body -->
+    <path d="M186,225 L314,225 L302,300 a20,20 0 0 1 -20,17 L218,317 a20,20 0 0 1 -20,-17 Z"
+          fill="${LIGHT}"/>
+    <path d="M186,225 L314,225" stroke="#8A2E00" stroke-width="6"/>
+
+    <!-- Cart handle detail (smile/heart mark) -->
+    <path d="M228,262 a22,22 0 0 0 44,0" fill="none" stroke="#C2410C" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Notification badge -->
+    <circle cx="322" cy="128" r="26" fill="#FFF3E6" stroke="#C2410C" stroke-width="5"/>
+    <path d="M311,128 L320,137 L335,118" fill="none" stroke="#C2410C" stroke-width="7"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Typography -->
+    <text x="250" y="400" font-family="'Inter', sans-serif" font-weight="900" font-size="56"
+          fill="url(#${gText})" stroke="#4A1B00" stroke-width="8" text-anchor="middle"
+          paint-order="stroke fill" letter-spacing="2">KRONOS</text>
+    <text x="250" y="428" font-family="'Inter', sans-serif" font-weight="800" font-size="15"
+          fill="#FFDCB0" text-anchor="middle" letter-spacing="4">SHOP ONLINE, ANYTIME</text>
+</svg>
+`;
+}
+
+function getBrandSvg(brand, uid) {
+    return brand.svgFn ? brand.svgFn(uid) : (brand.svgCode || "");
+}
+
+/* =========================
+   GENERATE CAROUSEL CARDS
+========================= */
+const track = document.getElementById("carouselTrack");
+
+function buildCarousel() {
+    track.innerHTML = "";
+    brandData.forEach((brand, index) => {
+        const card = document.createElement("div");
+        card.className = "logo-card-3d";
+        card.style.background = brand.bgGradient;
+        card.onclick = () => selectCard(index);
+
+        if (brand.isSvg) {
+            card.innerHTML = `
+                <div style="width:140px; height:140px; margin-bottom:10px;">${getBrandSvg(brand, "card" + index)}</div>
+                <div class="card-title">${brand.name}</div>
+                <div class="card-tag">${brand.category}</div>
+            `;
+        } else {
+            card.innerHTML = `
+                <div class="card-symbol">${brand.symbol}</div>
+                <div class="card-title">${brand.name}</div>
+                <div class="card-tag">${brand.category}</div>
+            `;
+        }
+        track.appendChild(card);
+    });
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const cards = document.querySelectorAll(".logo-card-3d");
+    const total = brandData.length;
+
+    cards.forEach((card, index) => {
+        let diff = index - currentIndex;
+        
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+
+        const absDiff = Math.abs(diff);
+        
+        const rotateY = diff * 32; 
+        const translateX = diff * 120; 
+        const translateZ = -absDiff * 180; 
+        const opacity = Math.max(0, 1 - absDiff * 0.25);
+
+        card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+        card.style.opacity = opacity;
+        card.style.zIndex = 100 - absDiff;
+        card.style.pointerEvents = absDiff > 3 ? "none" : "all";
+
+        if (diff === 0) {
+            card.style.border = "2px solid #fff";
+            card.style.boxShadow = "0 30px 80px rgba(255,255,255,0.3)";
+        } else {
+            card.style.border = "1px solid rgba(255,255,255,0.15)";
+            card.style.boxShadow = "0 30px 60px rgba(0,0,0,0.6)";
+        }
+    });
+
+    const currentBrand = brandData[currentIndex];
+    document.getElementById("brandTitle").innerText = currentBrand.name;
+    document.getElementById("brandCategory").innerText = currentBrand.category;
+    document.getElementById("brandCategory").style.color = currentBrand.colorText;
+}
+
+function rotateCarousel(direction) {
+    currentIndex = (currentIndex + direction + brandData.length) % brandData.length;
+    updateCarousel();
+}
+
+function selectCard(index) {
+    if (currentIndex === index) {
+        openDetail(brandData[index]);
+    } else {
+        currentIndex = index;
+        updateCarousel();
+    }
+}
+
+/* =========================
+   PAGE SWITCHING ROUTER
+========================= */
+function showPage(pageId) {
+    document.getElementById("page-showcase").classList.remove("active");
+    document.getElementById("page-detail").classList.remove("active");
+
+    if (pageId === "showcase") {
+        document.getElementById("page-showcase").classList.add("active");
+        updateCarousel();
+    } else if (pageId === "detail") {
+        document.getElementById("page-detail").classList.add("active");
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openDetail(brand) {
+    document.getElementById("detailTitle").innerText = brand.name;
+    document.getElementById("detailTag").innerText = brand.category;
+    document.getElementById("detailTag").style.color = brand.colorText;
+    document.getElementById("detailDesc").innerText = brand.desc;
+    
+    document.getElementById("specStyle").innerText = brand.style || "3D Minimalist";
+    document.getElementById("specColor").innerText = brand.palette || brand.colorText;
+    document.getElementById("specTarget").innerText = brand.target || brand.category;
+
+    const detailLogoCard = document.getElementById("detailLogoCard");
+    const detailLogoContent = document.getElementById("detailLogoContent");
+    detailLogoCard.style.background = brand.bgGradient;
+
+    if (brand.isSvg) {
+        detailLogoContent.innerHTML = getBrandSvg(brand, "detail");
+    } else {
+        detailLogoContent.innerHTML = `<div class="detail-logo-symbol">${brand.symbol}</div>`;
+    }
+
+    document.getElementById("page-detail").style.background = brand.pageBg;
+
+    showPage("detail");
+}
+
+function openDetailById(name) {
+    const found = brandData.find(b => b.name === name);
+    if (found) openDetail(found);
+}
+
+/* Initialize */
+buildCarousel();
+
+/* Render the SWIFT BITE tile in the portfolio grid */
+const swiftBiteTile = document.getElementById("swiftBiteTile");
+if (swiftBiteTile) swiftBiteTile.innerHTML = swiftBiteLogo("tile");
+
+/* =========================
+   3D HERO MOUSE TILT EFFECT
+========================= */
+const logo = document.getElementById("mainLogo");
+const stage = document.getElementById("logoStage");
+
+if (stage && logo) {
+    stage.addEventListener("mousemove", (e) => {
+        const rect = stage.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = (x - centerX) / 10;
+        const rotateX = (centerY - y) / 10;
+
+        logo.style.animation = "none";
+        logo.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(40px)`;
+    });
+
+    stage.addEventListener("mouseleave", () => {
+        logo.style.animation = "float 4s ease-in-out infinite";
+    });
+}
+
+/* =========================
+   CURSOR GLOW EFFECT
+========================= */
+const glow = document.getElementById("cursorGlow");
+document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+
+/* CONTACT ALERT */
+function contact(){
+    alert("ขอบคุณที่สนใจ I LOVE LOGO!\n\nสามารถติดต่อสอบถามผ่าน LINE / Email ได้เลยครับ");
+}
+</script>
+
+</body>
+</html>
